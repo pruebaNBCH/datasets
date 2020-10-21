@@ -1,0 +1,61 @@
+{
+  "uuid": "tasksMonitoring",
+  "name": "CUSTOM-tasksMonitoring",
+  "provider": "REMOTE",
+  "isPublic": false,
+  "cacheEnabled": false,
+  "cacheMaxRows": 1000,
+  "pushEnabled": false,
+  "pushMaxSize": 1024,
+  "refreshAlways": false,
+  "dataSource": "${org.kie.server.persistence.ds}",
+  "dbSQL": "select p.processName, p.externalId, t.taskId, t.taskName, t.status, t.createdDate, t.startDate, t.endDate, t.processInstanceId, t.userId, t.duration from ProcessInstanceLog p inner join BAMTaskSummary t on (t.processInstanceId = p.processInstanceId) inner join (select min(pk) as pk from BAMTaskSummary group by taskId) d on t.pk = d.pk",
+  "queryTarget": "CUSTOM",
+  "allColumns": false,
+  "columns": [
+    {
+      "id": "processName",
+      "type": "label"
+    },
+    {
+      "id": "externalId",
+      "type": "label"
+    },
+    {
+      "id": "taskId",
+      "type": "label"
+    },
+    {
+      "id": "taskName",
+      "type": "label"
+    },
+    {
+      "id": "status",
+      "type": "label"
+    },
+    {
+      "id": "createdDate",
+      "type": "date"
+    },
+    {
+      "id": "startDate",
+      "type": "date"
+    },
+    {
+      "id": "endDate",
+      "type": "date"
+    },
+    {
+      "id": "processInstanceId",
+      "type": "number"
+    },
+    {
+      "id": "userId",
+      "type": "label"
+    },
+    {
+      "id": "duration",
+      "type": "number"
+    }
+  ]
+}
