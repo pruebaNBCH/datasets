@@ -1,0 +1,73 @@
+{
+  "uuid": "jbpmProcessInstanceLogs",
+  "name": "CUSTOM-jbpmProcessInstanceLogs",
+  "provider": "REMOTE",
+  "isPublic": false,
+  "cacheEnabled": false,
+  "cacheMaxRows": 1000,
+  "pushEnabled": false,
+  "pushMaxSize": 1024,
+  "refreshAlways": false,
+  "dataSource": "${org.kie.server.persistence.ds}",
+  "dbSQL": "select log.id, log.nodeId, log.nodeName, log.nodeType, log.externalId, log.processInstanceId, log.log_date, log.connection, log.type, log.workItemId, log.referenceId, log.nodeContainerId, log.sla_due_date, log.slaCompliance from NodeInstanceLog log ",
+  "queryTarget": "CUSTOM",
+  "allColumns": false,
+  "columns": [
+    {
+      "id": "id",
+      "type": "number"
+    },
+    {
+      "id": "nodeId",
+      "type": "label"
+    },
+    {
+      "id": "nodeName",
+      "type": "label"
+    },
+    {
+      "id": "nodeType",
+      "type": "label"
+    },
+    {
+      "id": "externalId",
+      "type": "label"
+    },
+    {
+      "id": "processInstanceId",
+      "type": "number"
+    },
+    {
+      "id": "log_date",
+      "type": "date"
+    },
+    {
+      "id": "connection",
+      "type": "label"
+    },
+    {
+      "id": "type",
+      "type": "number"
+    },
+    {
+      "id": "workItemId",
+      "type": "number"
+    },
+    {
+      "id": "referenceId",
+      "type": "number"
+    },
+    {
+      "id": "nodeContainerId",
+      "type": "label"
+    },
+    {
+      "id": "sla_due_date",
+      "type": "date"
+    },
+    {
+      "id": "slaCompliance",
+      "type": "number"
+    }
+  ]
+}
