@@ -1,0 +1,37 @@
+{
+  "uuid": "jbpmProcessInstancesWithVariables",
+  "name": "CUSTOM-jbpmProcessInstancesWithVariables",
+  "provider": "REMOTE",
+  "isPublic": false,
+  "cacheEnabled": false,
+  "cacheMaxRows": 1000,
+  "pushEnabled": false,
+  "pushMaxSize": 1024,
+  "refreshAlways": false,
+  "dataSource": "${org.kie.server.persistence.ds}",
+  "dbSQL": "select vil.processInstanceId, vil.processId, vil.id, vil.variableId, vil.value from VariableInstanceLog vil where vil.id in (select MAX(v.id) from VariableInstanceLog v group by v.variableId, v.processInstanceId)",
+  "queryTarget": "CUSTOM",
+  "allColumns": false,
+  "columns": [
+    {
+      "id": "processInstanceId",
+      "type": "number"
+    },
+    {
+      "id": "processId",
+      "type": "label"
+    },
+    {
+      "id": "id",
+      "type": "number"
+    },
+    {
+      "id": "variableId",
+      "type": "label"
+    },
+    {
+      "id": "value",
+      "type": "label"
+    }
+  ]
+}
