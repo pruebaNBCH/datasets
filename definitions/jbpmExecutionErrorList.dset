@@ -1,0 +1,69 @@
+{
+  "uuid": "jbpmExecutionErrorList",
+  "name": "CUSTOM-jbpmExecutionErrorList",
+  "provider": "REMOTE",
+  "isPublic": false,
+  "cacheEnabled": false,
+  "cacheMaxRows": 1000,
+  "pushEnabled": false,
+  "pushMaxSize": 1024,
+  "refreshAlways": false,
+  "dataSource": "${org.kie.server.persistence.ds}",
+  "dbSQL": "select eri.ERROR_ACK, eri.ERROR_ACK_BY, eri.ERROR_ACK_AT, eri.ACTIVITY_ID, eri.ACTIVITY_NAME, eri.DEPLOYMENT_ID, eri.ERROR_DATE, eri.ERROR_ID, eri.ERROR_MSG, eri.JOB_ID, eri.PROCESS_ID, eri.PROCESS_INST_ID, eri.ERROR_TYPE from ExecutionErrorInfo eri",
+  "queryTarget": "CUSTOM",
+  "allColumns": false,
+  "columns": [
+    {
+      "id": "ERROR_ACK",
+      "type": "number"
+    },
+    {
+      "id": "ERROR_ACK_BY",
+      "type": "text"
+    },
+    {
+      "id": "ERROR_ACK_AT",
+      "type": "date"
+    },
+    {
+      "id": "ACTIVITY_ID",
+      "type": "number"
+    },
+    {
+      "id": "ACTIVITY_NAME",
+      "type": "label"
+    },
+    {
+      "id": "DEPLOYMENT_ID",
+      "type": "label"
+    },
+    {
+      "id": "ERROR_DATE",
+      "type": "date"
+    },
+    {
+      "id": "ERROR_ID",
+      "type": "label"
+    },
+    {
+      "id": "ERROR_MSG",
+      "type": "label"
+    },
+    {
+      "id": "JOB_ID",
+      "type": "number"
+    },
+    {
+      "id": "PROCESS_ID",
+      "type": "label"
+    },
+    {
+      "id": "PROCESS_INST_ID",
+      "type": "number"
+    },
+    {
+      "id": "ERROR_TYPE",
+      "type": "label"
+    }
+  ]
+}
