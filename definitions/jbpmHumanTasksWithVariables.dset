@@ -1,0 +1,29 @@
+{
+  "uuid": "jbpmHumanTasksWithVariables",
+  "name": "CUSTOM-jbpmHumanTasksWithVariables",
+  "provider": "REMOTE",
+  "isPublic": false,
+  "cacheEnabled": false,
+  "cacheMaxRows": 1000,
+  "pushEnabled": false,
+  "pushMaxSize": 1024,
+  "refreshAlways": false,
+  "dataSource": "${org.kie.server.persistence.ds}",
+  "dbSQL": "select tvi.taskId, tvi.name, tvi.value from TaskVariableImpl tvi",
+  "queryTarget": "CUSTOM",
+  "allColumns": false,
+  "columns": [
+    {
+      "id": "taskId",
+      "type": "number"
+    },
+    {
+      "id": "name",
+      "type": "label"
+    },
+    {
+      "id": "value",
+      "type": "label"
+    }
+  ]
+}
