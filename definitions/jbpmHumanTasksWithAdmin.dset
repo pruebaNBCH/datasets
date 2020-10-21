@@ -1,0 +1,109 @@
+{
+  "uuid": "jbpmHumanTasksWithAdmin",
+  "name": "FILTERED_BA_TASK-jbpmHumanTasksWithAdmin",
+  "provider": "REMOTE",
+  "isPublic": false,
+  "cacheEnabled": false,
+  "cacheMaxRows": 1000,
+  "pushEnabled": false,
+  "pushMaxSize": 1024,
+  "refreshAlways": false,
+  "dataSource": "${org.kie.server.persistence.ds}",
+  "dbSQL": "select t.activationTime, t.actualOwner, t.createdBy, t.createdOn, t.deploymentId, t.description, t.dueDate, t.name, t.parentId, t.priority, t.processId, t.processInstanceId, t.processSessionId, t.status, t.taskId, t.workItemId, t.lastModificationDate, pil.correlationKey, pil.processInstanceDescription ,oe.id, nil.sla_due_date, nil.slaCompliance, (select COUNT(errInfo.id) from ExecutionErrorInfo errInfo where errInfo.activity_id = t.taskId and errInfo.process_inst_id = pil.processInstanceId and errInfo.error_ack = 0 and errInfo.error_type = 'Task') as errorCount from AuditTaskImpl t  left join ProcessInstanceLog pil on pil.processInstanceId = t.processInstanceId left join PeopleAssignments_BAs ba on t.taskId = ba.task_id left join OrganizationalEntity oe on ba.entity_id = oe.id left join NodeInstanceLog nil on nil.workItemId=t.workItemId",
+  "queryTarget": "FILTERED_BA_TASK",
+  "allColumns": false,
+  "columns": [
+    {
+      "id": "activationTime",
+      "type": "date"
+    },
+    {
+      "id": "actualOwner",
+      "type": "label"
+    },
+    {
+      "id": "createdBy",
+      "type": "label"
+    },
+    {
+      "id": "createdOn",
+      "type": "date"
+    },
+    {
+      "id": "deploymentId",
+      "type": "label"
+    },
+    {
+      "id": "description",
+      "type": "text"
+    },
+    {
+      "id": "dueDate",
+      "type": "date"
+    },
+    {
+      "id": "name",
+      "type": "label"
+    },
+    {
+      "id": "parentId",
+      "type": "number"
+    },
+    {
+      "id": "priority",
+      "type": "number"
+    },
+    {
+      "id": "processId",
+      "type": "label"
+    },
+    {
+      "id": "processInstanceId",
+      "type": "number"
+    },
+    {
+      "id": "processSessionId",
+      "type": "number"
+    },
+    {
+      "id": "status",
+      "type": "label"
+    },
+    {
+      "id": "taskId",
+      "type": "number"
+    },
+    {
+      "id": "workItemId",
+      "type": "number"
+    },
+    {
+      "id": "lastModificationDate",
+      "type": "date"
+    },
+    {
+      "id": "correlationKey",
+      "type": "label"
+    },
+    {
+      "id": "processInstanceDescription",
+      "type": "text"
+    },
+    {
+      "id": "sla_due_date",
+      "type": "date"
+    },
+    {
+      "id": "slaCompliance",
+      "type": "number"
+    },
+    {
+      "id": "id",
+      "type": "label"
+    },
+    {
+      "id": "errorCount",
+      "type": "number"
+    }
+  ]
+}
