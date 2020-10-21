@@ -1,0 +1,57 @@
+{
+  "uuid": "processesMonitoring",
+  "name": "CUSTOM-processesMonitoring",
+  "provider": "REMOTE",
+  "isPublic": false,
+  "cacheEnabled": false,
+  "cacheMaxRows": 1000,
+  "pushEnabled": false,
+  "pushMaxSize": 1024,
+  "refreshAlways": false,
+  "dataSource": "${org.kie.server.persistence.ds}",
+  "dbSQL": "select log.processInstanceId, log.processId, log.start_date, log.end_date, log.status, log.duration, log.user_identity, log.processVersion, log.processName, log.externalId from ProcessInstanceLog log",
+  "queryTarget": "CUSTOM",
+  "allColumns": false,
+  "columns": [
+    {
+      "id": "processInstanceId",
+      "type": "number"
+    },
+    {
+      "id": "processId",
+      "type": "label"
+    },
+    {
+      "id": "start_date",
+      "type": "date"
+    },
+    {
+      "id": "end_date",
+      "type": "date"
+    },
+    {
+      "id": "status",
+      "type": "number"
+    },
+    {
+      "id": "duration",
+      "type": "number"
+    },
+    {
+      "id": "user_identity",
+      "type": "label"
+    },
+    {
+      "id": "processVersion",
+      "type": "label"
+    },
+    {
+      "id": "processName",
+      "type": "label"
+    },
+    {
+      "id": "externalId",
+      "type": "label"
+    }
+  ]
+}
