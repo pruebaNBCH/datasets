@@ -1,0 +1,65 @@
+{
+  "uuid": "jbpmRequestList",
+  "name": "CUSTOM-jbpmRequestList",
+  "provider": "REMOTE",
+  "isPublic": false,
+  "cacheEnabled": false,
+  "cacheMaxRows": 1000,
+  "pushEnabled": false,
+  "pushMaxSize": 1024,
+  "refreshAlways": false,
+  "dataSource": "${org.kie.server.persistence.ds}",
+  "dbSQL": "select ri.id, ri.timestamp, ri.status, ri.commandName, ri.message, ri.businessKey, ri.retries, ri.executions, pil.processName, pil.processInstanceId, pil.processInstanceDescription, ri.deploymentId from RequestInfo ri left join ProcessInstanceLog pil on pil.processInstanceId=ri.processInstanceId",
+  "queryTarget": "CUSTOM",
+  "allColumns": false,
+  "columns": [
+    {
+      "id": "id",
+      "type": "number"
+    },
+    {
+      "id": "timestamp",
+      "type": "date"
+    },
+    {
+      "id": "status",
+      "type": "label"
+    },
+    {
+      "id": "commandName",
+      "type": "label"
+    },
+    {
+      "id": "message",
+      "type": "label"
+    },
+    {
+      "id": "businessKey",
+      "type": "label"
+    },
+    {
+      "id": "retries",
+      "type": "number"
+    },
+    {
+      "id": "executions",
+      "type": "number"
+    },
+    {
+      "id": "processName",
+      "type": "label"
+    },
+    {
+      "id": "processInstanceId",
+      "type": "number"
+    },
+    {
+      "id": "processInstanceDescription",
+      "type": "label"
+    },
+    {
+      "id": "deploymentId",
+      "type": "label"
+    }
+  ]
+}
